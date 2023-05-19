@@ -44,4 +44,19 @@ public class BDConnection {
         conexao.close();
         
     }
+    
+    public static void users(String usuario, String password) throws SQLException, ClassNotFoundException{
+        Class.forName("com.mysql.jdbc.Driver");
+        String urlJDBC = "jdbc:mysql://localhost:3306/social";
+        Connection conexao = (Connection) DriverManager.getConnection(urlJDBC,
+                                                        "root", 
+                                                        "12345");
+       
+        Statement comando = (Statement) conexao.createStatement();
+        
+            comando.execute("INSERT INTO users (usuario, password)VALUES" + 
+                    "('"+usuario+"','"+password+"')");
+        
+        conexao.close();
+}
 }

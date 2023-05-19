@@ -60,14 +60,14 @@ public class Menu extends JFrame{
     
     
      btnCadEmpresa.setBounds(10, 10, 120, 25);
-     btnCadSocial.setBounds(10, 140, 120, 25);
-     btnSair.setBounds(10, 320, 40, 12);
+     btnCadSocial.setBounds(220, 10, 120, 25);
+     btnSair.setBounds(10, 80, 70, 25);
      
      getContentPane().add(btnCadEmpresa);
      getContentPane().add(btnCadSocial);
      getContentPane().add(btnSair);     
           
-       setSize(400, 250);
+       setSize(400, 150);
        setTitle("Menu");
        setLocationRelativeTo(null);
        setVisible(true);
