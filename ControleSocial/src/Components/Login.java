@@ -26,7 +26,7 @@ public class Login extends JFrame {
     public JLabel lblUsuario, lblSenha;
     public JTextField txtUsuario;
     public JPasswordField password;
-    public JButton btnLogar;
+    public JButton btnLogar,btnCadastro ;
     
     public Login() throws ParseException {
         setLayout(null);
@@ -36,6 +36,7 @@ public class Login extends JFrame {
         lblSenha = new JLabel("Senha:");
         password = new JPasswordField(15);
         btnLogar = new JButton("Logar");
+        btnCadastro = new JButton("Cadastro");
         
         btnLogar.addActionListener(new ActionListener(){
             @Override
@@ -48,18 +49,35 @@ public class Login extends JFrame {
             }
             
         });
+        btnCadastro.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    cliqueBtnCadastrar();
+                }  catch (ParseException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+        });
         
          lblUsuario.setBounds(10, 10, 200, 25);
          txtUsuario.setBounds(70, 10, 250, 25);
          lblSenha.setBounds(10, 60, 200, 25);
          password.setBounds(70, 60, 250, 25);
-         btnLogar.setBounds(130, 120, 100, 40);
+         btnLogar.setBounds(80, 120, 100, 40);
+         btnCadastro.setBounds(200, 120, 100, 40);
+
 
           getContentPane().add(lblUsuario);
           getContentPane().add(txtUsuario);
           getContentPane().add(lblSenha);
           getContentPane().add(password);
           getContentPane().add(btnLogar);
+          getContentPane().add(btnCadastro);
+
           
        setSize(400, 250);
        setTitle("Login");
@@ -70,18 +88,10 @@ public class Login extends JFrame {
     }
     
     private void cliqueBtnLogar() throws FileNotFoundException{
-        String usuariotxt = txtUsuario.getText(),
-               passwordtxt = password.getText();
-        
-        System.out.println("usuário " + usuariotxt);
-        System.out.println("Senha : " + passwordtxt);
-        
-        try(PrintWriter pw = new PrintWriter(new File("login.txt"))){
-            pw.println("Usuário : " + usuariotxt);
-            pw.println("Senha : " + passwordtxt);
-    } catch (FileNotFoundException e){
-           System.out.println(e);
-
-    }}
+        }
+    private void cliqueBtnCadastrar() throws FileNotFoundException, ParseException{
+        this.dispose();
+       CadastroUsuario cadastroUsuario = new CadastroUsuario();
+        }
 }
 

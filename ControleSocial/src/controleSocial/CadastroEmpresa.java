@@ -5,6 +5,7 @@
 
 package controleSocial;
 
+import Components.Menu;
 import DBConnection.BDConnection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -56,7 +57,7 @@ public class CadastroEmpresa extends JFrame {
        familiasAssist = new JLabel("Quantidade famílias assistidas");
        cqdefamiliasAssist = new JComboBox(qdefamiliasAssist);
        btnEnviar2 = new JButton("Enviar");
-       buttonTwo = new JButton("Cad. Social");
+       buttonTwo = new JButton("Voltar");
        
        btnEnviar2.addActionListener(new ActionListener() {
             @Override
@@ -147,7 +148,7 @@ public class CadastroEmpresa extends JFrame {
       private void cliqueTelaUm() throws ParseException{
        
        this.dispose();
-       CadastroSocial CadastroSocial = new CadastroSocial();
+        Menu menu = new Menu();
    
     }
 

@@ -58,16 +58,28 @@ public class Menu extends JFrame{
             
         });
     
+    btnSair.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    cliqueBtnSair();
+                } catch (ParseException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+        });
     
-     btnCadEmpresa.setBounds(10, 10, 120, 25);
-     btnCadSocial.setBounds(220, 10, 120, 25);
-     btnSair.setBounds(10, 80, 70, 25);
+    
+     btnCadEmpresa.setBounds(30, 10, 120, 35);
+     btnCadSocial.setBounds(155, 10, 120, 35);
+     btnSair.setBounds(206, 60, 70, 25);
      
      getContentPane().add(btnCadEmpresa);
      getContentPane().add(btnCadSocial);
      getContentPane().add(btnSair);     
           
-       setSize(400, 150);
+       setSize(320, 150);
        setTitle("Menu");
        setLocationRelativeTo(null);
        setVisible(true);
@@ -85,6 +97,13 @@ public class Menu extends JFrame{
        
        this.dispose();
        CadastroSocial CadastroSocial = new CadastroSocial();
+   
+    }
+    
+    private void cliqueBtnSair() throws ParseException{
+       
+       this.dispose();
+       Login login = new Login();
    
     }
 }

@@ -5,6 +5,7 @@
 
 package controleSocial;
 
+import Components.Menu;
 import DBConnection.BDConnection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -57,7 +58,7 @@ public class CadastroSocial extends JFrame {
        qtdeDependentes = new JLabel("Quantidade de dependentes");
        cqdeDependentes = new JComboBox(qdeDependentes);
        btnEnviar = new JButton("Enviar");
-       buttonOne = new JButton("Cad. empresa");
+       buttonOne = new JButton("Voltar");
        
        
        
@@ -155,7 +156,7 @@ public class CadastroSocial extends JFrame {
    private void cliqueTelaDois() throws ParseException{
        
        this.dispose();
-       CadastroEmpresa cadastroEmpresa = new CadastroEmpresa();
+       Menu menu = new Menu();
    
     }
 
