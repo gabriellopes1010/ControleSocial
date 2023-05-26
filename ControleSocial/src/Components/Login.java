@@ -24,8 +24,7 @@ import javax.swing.JTextField;
  */
 public class Login extends JFrame {
     public JLabel lblUsuario, lblSenha;
-    public JTextField txtUsuario;
-    public JPasswordField password;
+    public JTextField txtUsuario,password;
     public JButton btnLogar,btnCadastro ;
     
     public Login() throws ParseException {
@@ -34,7 +33,7 @@ public class Login extends JFrame {
         lblUsuario = new JLabel("Usuário:");
         txtUsuario = new JTextField();
         lblSenha = new JLabel("Senha:");
-        password = new JPasswordField(15);
+        password = new JTextField();
         btnLogar = new JButton("Logar");
         btnCadastro = new JButton("Cadastro");
         
@@ -88,6 +87,9 @@ public class Login extends JFrame {
     }
     
     private void cliqueBtnLogar() throws FileNotFoundException{
+            String u = txtUsuario.getText(),
+                   p = password.getText();
+            
         }
     private void cliqueBtnCadastrar() throws FileNotFoundException, ParseException{
         this.dispose();

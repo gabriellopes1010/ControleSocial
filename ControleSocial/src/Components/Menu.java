@@ -4,8 +4,6 @@
  */
 package Components;
 
-import controleSocial.CadastroEmpresa;
-import controleSocial.CadastroSocial;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;

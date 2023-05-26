@@ -3,10 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package controleSocial;
+package Components;
 
 import Components.Menu;
-import DBConnection.BDConnection;
+import DBConnection.DBConnection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -140,7 +140,7 @@ public class CadastroEmpresa extends JFrame {
             System.out.println("Arquivo nÃo existe");
         }
         try {
-             BDConnection.cadastroEmpresa(nome, cnpj, atuacao, tempo, familias);
+             DBConnection.cadastroEmpresa(nome, cnpj, atuacao, tempo, familias);
         } catch (Exception e) {
             System.out.println(e);
         }

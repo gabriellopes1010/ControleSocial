@@ -5,7 +5,7 @@
 package Main;
 
 import Components.CadastroUsuario;
-import controleSocial.CadastroSocial;
+import Components.CadastroSocial;
 import Components.Login;
 import Components.Menu;
 import java.text.ParseException;
@@ -17,8 +17,8 @@ import java.text.ParseException;
 public class Main {
     public static void main(String[] args) throws ParseException{
         //CadastroSocial cadastroSocial = new CadastroSocial();
-        // Login login = new Login();
-       Menu menu = new Menu();
+         Login login = new Login();
+       //Menu menu = new Menu();
        //CadastroUsuario cadastroUsuario = new CadastroUsuario();
         
 

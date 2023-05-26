@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class BDConnection {
+public class DBConnection {
   
     
     public static void cadastroPessoal(String nomeCompleto, String cpf, String profissao, float tempoDesempregado, int dependentes) throws SQLException, ClassNotFoundException{
@@ -58,5 +58,8 @@ public class BDConnection {
                     "('"+usuario+"','"+password+"')");
         
         conexao.close();
+        
 }
+    
+    
 }

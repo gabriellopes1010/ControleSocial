@@ -4,6 +4,7 @@
  */
 package Components;
 
+import DBConnection.DBConnection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -85,7 +86,13 @@ public class CadastroUsuario extends JFrame {
            System.out.println(e);
 
      
-    }}
+    }
+         try {
+             DBConnection.users(usuariotxt, passwordtxt);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
 }
 
