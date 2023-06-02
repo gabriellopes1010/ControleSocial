@@ -4,7 +4,7 @@
  */
 package Main;
 
-
+import Controller.InsertArquivo;
 import View.Gui.Beneficiario.TrashBeneficiario;
 import View.Gui.Login.LoginTela;
 import View.Gui.Menu.MenuTela;
@@ -17,8 +17,12 @@ import java.text.ParseException;
 public class Main {
     public static void main(String[] args) throws ParseException{
         
-        //LoginTela Login = new LoginTela();
-        MenuTela menu = new MenuTela();
+        InsertArquivo insertArquivo = new InsertArquivo();
+        Thread thread = new Thread(insertArquivo);
+        thread.start();
+        
+        LoginTela Login = new LoginTela();
+        //MenuTela menu = new MenuTela();
              
 
 }
