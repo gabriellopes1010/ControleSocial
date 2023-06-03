@@ -66,9 +66,10 @@ public class TrashEmpresa extends JFrame{
     }
     
     private void deletar(){
-       String cnpj = txt_cnpjEmpresa.getText();
+       String cnpj = txt_cnpjEmpresa.getText().replaceAll("\\D+", "");
+
         Empresa empresa = new Empresa();
-       empresa.deletar(cnpj);
+         empresa.deletar(cnpj);
     }
     
     private void voltar(){

@@ -119,8 +119,9 @@ public class CadEmpresa extends TelaDefault {
     
     private void cadastrarEmpresa()throws ParseException{
         String nome = razaoSocial.getText(),
-               cnpj = ftxtCnpj.getText(),
-               atuacao = txtAtuacao.getText();
+               cnpj = ftxtCnpj.getText();
+               cnpj = cnpj.replaceAll("\\D+", "");
+        String atuacao = txtAtuacao.getText();
         int familias =Integer.parseInt(cqdefamiliasAssist.getSelectedItem().toString());
         float tempo =Float.parseFloat((String)jTempoPrograma.getSelectedItem().toString());
        

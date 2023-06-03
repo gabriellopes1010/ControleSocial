@@ -67,6 +67,7 @@ public class TrashBeneficiario extends JFrame{
     
     private void deletar(){
        String cpf = txt_cpfDoBeneficiario.getText();
+              cpf = cpf.replaceAll("\\D+", "");
         Beneficiario beneficiario = new Beneficiario();
        beneficiario.deletar(cpf);
     }

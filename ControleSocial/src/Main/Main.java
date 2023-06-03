@@ -5,7 +5,6 @@
 package Main;
 
 import Controller.InsertArquivo;
-import View.Gui.Beneficiario.TrashBeneficiario;
 import View.Gui.Login.LoginTela;
 import View.Gui.Menu.MenuTela;
 import java.text.ParseException;

@@ -37,6 +37,8 @@ public class CadBeneficiario extends TelaDefault{
         
         setTitle("Cadastro de Beneficiário");
         setResizable(false);
+        setLocationRelativeTo(null);
+
         
         lblNome = new JLabel("Nome do Beneficiário:");
         lblCpf = new JLabel("CPF do Beneficiário:");
@@ -114,6 +116,7 @@ public class CadBeneficiario extends TelaDefault{
     private void cadastrarBeneficiario()throws ParseException{
         String nome = txtNome.getText(),
                cpf =ftxtCpf.getText();
+               cpf = cpf.replaceAll("\\D+", "");
         String profissao = txtProfissional.getText();
         int dependentes =Integer.parseInt((String) cqdeDependentes.getSelectedItem());
         float tempoDesempregado = Float.parseFloat((String) jtempoDesempregado.getSelectedItem());

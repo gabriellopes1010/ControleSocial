@@ -113,8 +113,9 @@ public class RefreshBeneficiario extends TelaDefault{
     
     private void Atualizar(){
         String nome = txtNome.getText(),
-               cpf =ftxtCpf.getText(),
-               profissao = txtProfissional.getText();
+               cpf =ftxtCpf.getText();
+               cpf = cpf.replaceAll("\\D+", "");      
+        String profissao = txtProfissional.getText();
         int dependentes =Integer.parseInt((String) cqdeDependentes.getSelectedItem());
         float tempoDesempregado = Float.parseFloat((String) jtempoDesempregado.getSelectedItem());
        

@@ -32,28 +32,29 @@ public class LoginTela extends TelaDefault implements Runnable{
     private final JButton btn_logar,btn_cadastrar;
 
     public LoginTela() {
-        //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("login.png")));
         setTitle("Tela de login");
-        setSize(300, 400);
+        setSize(300, 250);
         setResizable(false);
+        setLocationRelativeTo(null);
 
-        lbl_nomeUsuario = new JLabel("Nome do usuario:");
-        lbl_senhaUsuario = new JLabel("Senha do usuario:");
+
+        lbl_nomeUsuario = new JLabel("Usuario:");
+        lbl_senhaUsuario = new JLabel("Senha:");
 
         txt_nomeUsuario = new JTextField("");
         txt_senhaUsuario = new JPasswordField();
 
         btn_logar = new JButton("Logar");
-        btn_cadastrar = new JButton("Cadastrar novo usuário");
+        btn_cadastrar = new JButton("Cadastrar");
         
-        lbl_nomeUsuario.setBounds(20, 40, 200, 50);
-        lbl_senhaUsuario.setBounds(20, 100, 200, 50);
+        lbl_nomeUsuario.setBounds(20, 10, 60, 50);
+        txt_nomeUsuario.setBounds(75,26,180, 20);
 
-        txt_nomeUsuario.setBounds(20, 80, 200, 30);
-        txt_senhaUsuario.setBounds(20, 140, 200, 30);
+        lbl_senhaUsuario.setBounds(26, 50, 40, 50);
+        txt_senhaUsuario.setBounds(75, 66, 180, 20);
 
-        btn_logar.setBounds(20, 200, 200, 30);
-        btn_cadastrar.setBounds(20, 260, 200, 30);
+        btn_logar.setBounds(25, 105, 90, 30);
+        btn_cadastrar.setBounds(140, 105, 120, 30);
         
         btn_logar.setContentAreaFilled(false);
         btn_logar.setOpaque(true);
@@ -61,7 +62,6 @@ public class LoginTela extends TelaDefault implements Runnable{
 
         btn_cadastrar.setContentAreaFilled(false);
         btn_cadastrar.setOpaque(true);
-        //btn_cadastrar.setBackground(Color.YELLOW);
         
         btn_logar.addActionListener(new ActionListener() {
             @Override
@@ -77,7 +77,9 @@ public class LoginTela extends TelaDefault implements Runnable{
         
         btn_cadastrar.addActionListener((ActionEvent e) -> {
             try {
+                this.dispose();
                 CadastrarUsuario();
+
             } catch (ParseException ex) {
                 System.out.println("Ocorreu um erro ao carregar a tela de cadastro :" + ex);
             }
@@ -111,8 +113,8 @@ public class LoginTela extends TelaDefault implements Runnable{
     }
     
     private void CadastrarUsuario() throws ParseException {
-        this.dispose();
         CadastroUser cadastraUsuario = new CadastroUser();
+        
     }
     @Override
     public void run() {

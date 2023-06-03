@@ -50,6 +50,7 @@ public class CadastroUser extends TelaDefault {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CadastraUsuarios();
+                voltar();
             }
         });
         
@@ -89,7 +90,7 @@ public class CadastroUser extends TelaDefault {
         }
     }
     
-    private void voltar ( ){
+    private void voltar(){
         this.dispose();
         LoginTela login = new LoginTela();
     }

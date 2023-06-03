@@ -37,7 +37,7 @@ public class MenuTela extends JFrame {
     private final JButton btn_deletaBeneficiario, btn_deletaEmpresa, btn_deletaUser, btn_sair;
 
     public MenuTela() {
-        setSize(500, 400);
+        setSize(550, 300);
         setTitle("Menu");
         setLayout(null);
         setResizable(false);
@@ -61,27 +61,30 @@ public class MenuTela extends JFrame {
         btn_sair = new JButton("Sair");
 
         btn_cadBeneficiario.setBounds(20, 20, 150, 30);
-        btn_cadEmpresa.setBounds(20, 60, 150, 30);
-        btn_cadastroUser.setBounds(20, 100, 150, 30);
+        btn_mostrarBeneficiario.setBounds(20, 60, 150, 30);
+        btn_alteraBeneficiario.setBounds(20, 100, 150, 30);
+        btn_deletaBeneficiario.setBounds(20, 140, 150, 30);
 
-        btn_mostrarBeneficiario.setBounds(20, 140, 150, 30);
-        btn_mostraEmpresa.setBounds(20, 180, 150, 30);
-        btn_mostrarUser.setBounds(20, 220, 150, 30);
-
-        btn_alteraBeneficiario.setBounds(300, 20, 150, 30);
-        btn_alteraEmpresa.setBounds(300, 60, 150, 30);
-        btn_alteraUser.setBounds(300, 100, 150, 30);
-
-        btn_deletaBeneficiario.setBounds(300, 140, 150, 30);
-        btn_deletaEmpresa.setBounds(300, 180, 150, 30);
-        btn_deletaUser.setBounds(300, 220, 150, 30);
-        btn_sair.setBounds(300, 300, 150, 30);//(20, 380, 250, 30);
+        
+        btn_cadEmpresa.setBounds(190,20, 150, 30);
+        btn_mostraEmpresa.setBounds(190, 60, 150, 30);
+        btn_alteraEmpresa.setBounds(190, 100, 150, 30);
+        btn_deletaEmpresa.setBounds(190, 140, 150, 30);
+        
+        
+        btn_cadastroUser.setBounds(360, 20, 150, 30);
+        btn_mostrarUser.setBounds(360, 60, 150, 30);
+        btn_alteraUser.setBounds(360, 100, 150, 30);
+        btn_deletaUser.setBounds(360, 140, 150, 30);
+        
+        btn_sair.setBounds(360,200, 150, 30);
 
         btn_sair.setContentAreaFilled(false);
         btn_sair.setOpaque(true);
 
         btn_cadEmpresa.addActionListener((ActionEvent e) -> {
             try {
+                this.dispose();
                 CadEmpresa();
             } catch (ParseException ex) {
                 System.out.println("Ocorreu um erro ao executar a ação :" + ex);
@@ -90,6 +93,7 @@ public class MenuTela extends JFrame {
 
         btn_alteraEmpresa.addActionListener((ActionEvent e) -> {
             try {
+                this.dispose();
                 RefreshEmpresa();
             } catch (ParseException ex) {
                 Logger.getLogger(MenuTela.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,6 +102,7 @@ public class MenuTela extends JFrame {
 
         btn_deletaEmpresa.addActionListener((ActionEvent e) -> {
             try {
+                this.dispose();
                 TrashEmpresa();
             } catch (ParseException ex) {
                 Logger.getLogger(MenuTela.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,6 +119,7 @@ public class MenuTela extends JFrame {
 
         btn_cadBeneficiario.addActionListener((ActionEvent e) -> {
             try {
+                this.dispose();
                 CadBeneficiario();
             } catch (ParseException ex) {
                 System.out.println("Ocorreu um erro ao executar a ação :" + ex);
@@ -126,6 +132,7 @@ public class MenuTela extends JFrame {
 
         btn_alteraBeneficiario.addActionListener((ActionEvent e) -> {
             try {
+                this.dispose();
                 RefreshBeneficiario();
             } catch (ParseException ex) {
                 Logger.getLogger(MenuTela.class.getName()).log(Level.SEVERE, null, ex);
@@ -134,6 +141,7 @@ public class MenuTela extends JFrame {
         
         btn_deletaBeneficiario.addActionListener((ActionEvent e) -> {
             try {
+                this.dispose();             
                 TrashBeneficiario();
             } catch (ParseException ex) {
                 Logger.getLogger(MenuTela.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,6 +150,7 @@ public class MenuTela extends JFrame {
 
         btn_cadastroUser.addActionListener((ActionEvent e) -> {
             try {
+                this.dispose();                
                 CadUser();
             } catch (ParseException ex) {
                 System.out.println("Ocorreu um erro ao executar a ação :" + ex);
@@ -153,10 +162,12 @@ public class MenuTela extends JFrame {
         });
 
         btn_alteraUser.addActionListener((ActionEvent e) -> {
+            this.dispose();
             RefreshUsuario();
         });
 
         btn_deletaUser.addActionListener((ActionEvent e) -> {
+           this.dispose();
             TrashUsuario();
         });
 

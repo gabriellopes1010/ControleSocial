@@ -105,7 +105,7 @@ public class InsertArquivo implements Runnable {
                 PreparedStatement pst = con.prepareStatement(query);
 
                 pst.setString(1, valoresSeparados[0]);
-                pst.setString(2, valoresSeparados[1]);
+                pst.setString(2, valoresSeparados[1].trim());
                 pst.setString(3, valoresSeparados[2]);
                 pst.setFloat(4, Float.parseFloat((String)valoresSeparados[3].trim()));
                 pst.setInt(5, Integer.parseInt((String)valoresSeparados[4].trim()));
@@ -121,7 +121,7 @@ public class InsertArquivo implements Runnable {
         } catch (SQLException e) {
             System.out.println("Ocorreu um erro ao tentar inserir os dados na tabela de beneficiarios:" + e);
         }
-        limparArquivo();
+        limparArquivoBENE();
 
     }
      
@@ -135,7 +135,7 @@ public class InsertArquivo implements Runnable {
                 PreparedStatement pst = con.prepareStatement(query);
 
                 pst.setString(1, valoresSeparados[0]);
-                pst.setString(2, valoresSeparados[1]);
+                pst.setString(2, valoresSeparados[1].trim());
                 pst.setString(3, valoresSeparados[2]);
                 pst.setFloat(4, Float.parseFloat((String)valoresSeparados[3].trim()));
                 pst.setInt(5, Integer.parseInt((String)valoresSeparados[4].trim()));
@@ -150,7 +150,7 @@ public class InsertArquivo implements Runnable {
         } catch (SQLException e) {
             System.out.println("Ocorreu um erro ao tentar inserir os dados na tabela de Empresa:" + e);
         }
-        limparArquivo();
+        limparArquivoEMP();
 
     };
          private void limparArquivo() {
@@ -165,7 +165,17 @@ public class InsertArquivo implements Runnable {
     }
          private void limparArquivoBENE() {
         try {
-            FileWriter writer = new FileWriter(ARQUIVO);
+            FileWriter writer = new FileWriter(ARQUIVOBENE);
+            writer.write("");
+            writer.close();
+            System.out.println("Arquivo limpo");
+        } catch (IOException e) {
+            System.out.println("Ocorreu um erro ao limpar o arquivo: " + e);
+        }
+    }
+         private void limparArquivoEMP() {
+        try {
+            FileWriter writer = new FileWriter(ARQUIVOEMP);
             writer.write("");
             writer.close();
             System.out.println("Arquivo limpo");
