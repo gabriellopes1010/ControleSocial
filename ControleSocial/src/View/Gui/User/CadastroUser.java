@@ -14,16 +14,20 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
+/**
+ * Classe que representa a tela de cadastro de usuário.
+ */
 public class CadastroUser extends TelaDefault {
      
     private final JLabel lbl_nomeUsuario,lbl_senhaUsuario;
     private final JTextField txt_nomeUsuario,txt_senhaUsuario;
     private final JButton btn_cadastrar,btn_voltar;
-
+/**
+ * Construtor da classe CadastroUser.
+ * Cria e configura os componentes da tela.
+ */
     public CadastroUser() {
         
-        //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("login.png")));
         setTitle("Tela de cadastro");
         setSize(300, 400);
         setResizable(false);
@@ -63,11 +67,9 @@ public class CadastroUser extends TelaDefault {
         
         btn_cadastrar.setContentAreaFilled(false);
         btn_cadastrar.setOpaque(true);
-        //btn_cadastrar.setBackground(Color.GREEN);
         
         btn_voltar.setContentAreaFilled(false);
         btn_voltar.setOpaque(true);
-        //btn_voltar.setBackground(Color.YELLOW);
         
         add(lbl_nomeUsuario);
         add(lbl_senhaUsuario);
@@ -78,6 +80,9 @@ public class CadastroUser extends TelaDefault {
         
         setVisible(true);
     }
+    /**
+     * Método que cadastra o usuário no sistema.
+     */
     private synchronized void CadastraUsuarios(){
     String nomeuser  = txt_nomeUsuario.getText();
     String senhauser = txt_senhaUsuario.getText();
@@ -89,7 +94,9 @@ public class CadastroUser extends TelaDefault {
         } catch (Exception e) {
         }
     }
-    
+     /**
+     * Método que volta para a tela de login.
+     */
     private void voltar(){
         this.dispose();
         LoginTela login = new LoginTela();

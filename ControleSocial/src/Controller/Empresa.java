@@ -15,8 +15,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author midia
+ * Esta classe representa uma Empresa e suas operações relacionadas ao banco de dados.
  */
 public class Empresa extends DBObject {
 
@@ -28,7 +27,15 @@ public class Empresa extends DBObject {
     private String atuacao;
     private float tempo;
     private int familias;
-
+/**
+     * Construtor da classe Empresa.
+     * @param nomeEmp O nome da empresa.
+     * @param cnpjEmp O CNPJ da empresa.
+     * @param atuacaoEmp A área de atuação da empresa.
+     * @param tempoEmp O tempo de existência da empresa.
+     * @param familiasEmp O número de famílias assistidas pela empresa.
+     */
+    
     public Empresa(String nomeEmp, String cnpjEmp, String atuacaoEmp, float tempoEmp, int familiasEmp) {
         nome = nomeEmp;
         cnpj = cnpjEmp;
@@ -36,10 +43,14 @@ public class Empresa extends DBObject {
         tempo = tempoEmp;
         familias = familiasEmp;
     }
-
+/**
+     * Construtor vazio da classe Empresa.
+     */
     public Empresa() {
     }
-
+/**
+     * Insere a empresa no banco de dados.
+     */
     public void inserir() {
 
         try {
@@ -86,7 +97,10 @@ public class Empresa extends DBObject {
             System.out.println("Erro:\n" + e);
         }
     }
-
+/**
+     * Deleta a empresa do banco de dados.
+     * @param cnpj O CNPJ da empresa a ser deletada.
+     */
     public void deletar(String cnpj) {
         try {
             String query = "DELETE FROM empresa WHERE cnpj_empresa = ?";
@@ -114,6 +128,8 @@ public class Empresa extends DBObject {
         tela.setTitle("Empresas cadastradas");
         tela.setSize(500, 300);
         tela.setResizable(false);
+        tela.setLocationRelativeTo(null);
+
         // Cria a tabela
         String[] colunas = {"Nome", "cnpj","atuação","Tempo no Prog.","Famílias Assist."};
         DefaultTableModel modelo = new DefaultTableModel(colunas, 0);

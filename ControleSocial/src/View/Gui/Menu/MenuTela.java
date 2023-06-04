@@ -26,8 +26,7 @@ import javax.swing.JFrame;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /**
- *
- * @author midia
+ * Classe que representa a tela de menu do sistema.
  */
 public class MenuTela extends JFrame {
 
@@ -35,52 +34,64 @@ public class MenuTela extends JFrame {
     private final JButton btn_mostrarBeneficiario, btn_mostraEmpresa, btn_mostrarUser;
     private final JButton btn_alteraBeneficiario, btn_alteraEmpresa, btn_alteraUser;
     private final JButton btn_deletaBeneficiario, btn_deletaEmpresa, btn_deletaUser, btn_sair;
-
+ /**
+     * Construtor da classe MenuTela.
+     * Cria uma nova instância da tela de menu.
+     */
     public MenuTela() {
         setSize(550, 300);
         setTitle("Menu");
         setLayout(null);
         setResizable(false);
         setLocationRelativeTo(null);
+         // Criação dos botões e configuração dos posicionamentos na tela
         
+        // Botões para a seção de Beneficiário
         btn_cadBeneficiario = new JButton("Cadastrar Beneficiário");
-        btn_cadEmpresa = new JButton("Cadastrar Empresa");
-        btn_cadastroUser = new JButton("Cadastrar Usuário");
-
-        btn_mostrarBeneficiario = new JButton("Mostrar Beneficiário");
-        btn_mostraEmpresa = new JButton("Mostrar Empresa");
-        btn_mostrarUser = new JButton("Mostrar usuários");
-
-        btn_alteraBeneficiario = new JButton("Atualizar beneficiário");
-        btn_alteraEmpresa = new JButton("Atualizar empresa");
-        btn_alteraUser = new JButton("Atualizar usuário");
-
-        btn_deletaBeneficiario = new JButton("Deletar beneficiário");
-        btn_deletaEmpresa = new JButton("Deletar empresa");
-        btn_deletaUser = new JButton("Deletar usuário");
-        btn_sair = new JButton("Sair");
-
         btn_cadBeneficiario.setBounds(20, 20, 150, 30);
+        
+        btn_mostrarBeneficiario = new JButton("Mostrar Beneficiário");
         btn_mostrarBeneficiario.setBounds(20, 60, 150, 30);
+        
+        btn_alteraBeneficiario = new JButton("Atualizar beneficiário");
         btn_alteraBeneficiario.setBounds(20, 100, 150, 30);
+        
+        btn_deletaBeneficiario = new JButton("Deletar beneficiário");
         btn_deletaBeneficiario.setBounds(20, 140, 150, 30);
 
+        // Botões para a seção de Empresa
+        btn_cadEmpresa = new JButton("Cadastrar Empresa");
+        btn_cadEmpresa.setBounds(190, 20, 150, 30);
         
-        btn_cadEmpresa.setBounds(190,20, 150, 30);
+        btn_mostraEmpresa = new JButton("Mostrar Empresa");
         btn_mostraEmpresa.setBounds(190, 60, 150, 30);
+        
+        btn_alteraEmpresa = new JButton("Atualizar empresa");
         btn_alteraEmpresa.setBounds(190, 100, 150, 30);
+        
+        btn_deletaEmpresa = new JButton("Deletar empresa");
         btn_deletaEmpresa.setBounds(190, 140, 150, 30);
         
-        
+        // Botões para a seção de Usuário
+        btn_cadastroUser = new JButton("Cadastrar Usuário");
         btn_cadastroUser.setBounds(360, 20, 150, 30);
+        
+        btn_mostrarUser = new JButton("Mostrar usuários");
         btn_mostrarUser.setBounds(360, 60, 150, 30);
+        
+        btn_alteraUser = new JButton("Atualizar usuário");
         btn_alteraUser.setBounds(360, 100, 150, 30);
+        
+        btn_deletaUser = new JButton("Deletar usuário");
         btn_deletaUser.setBounds(360, 140, 150, 30);
         
-        btn_sair.setBounds(360,200, 150, 30);
-
+        // Botão para sair
+        btn_sair = new JButton("Sair");
+        btn_sair.setBounds(360, 200, 150, 30);
         btn_sair.setContentAreaFilled(false);
         btn_sair.setOpaque(true);
+
+        // Adiciona ações aos botões
 
         btn_cadEmpresa.addActionListener((ActionEvent e) -> {
             try {
@@ -174,21 +185,21 @@ public class MenuTela extends JFrame {
         btn_sair.addActionListener((ActionEvent e) -> {
             sair();
         });
-
+        // Adiciona os botões à tela
+        
         add(btn_cadBeneficiario);
-        add(btn_cadEmpresa);
-        add(btn_cadastroUser);
-
         add(btn_mostrarBeneficiario);
-        add(btn_mostraEmpresa);
-        add(btn_mostrarUser);
-
         add(btn_alteraBeneficiario);
-        add(btn_alteraEmpresa);
-        add(btn_alteraUser);
-
         add(btn_deletaBeneficiario);
+        
+        add(btn_cadEmpresa);
+        add(btn_mostraEmpresa);
+        add(btn_alteraEmpresa);
         add(btn_deletaEmpresa);
+        
+        add(btn_cadastroUser);
+        add(btn_mostrarUser);
+        add(btn_alteraUser);
         add(btn_deletaUser);
 
         add(btn_sair);

@@ -20,8 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 /**
- *
- * @author midia
+ * Classe que representa a tela de cadastro de empresas.
  */
 public class CadEmpresa extends TelaDefault {
     private final JLabel lblNome, lblCnpj, lblAtuacao,lblTempoPrograma,familiasAssist;
@@ -32,7 +31,11 @@ public class CadEmpresa extends TelaDefault {
     
       private final String[] qdefamiliasAssist = {"1", "2", "3", "4", "5","6"};
       private final String[] tmpPrograma = {"0.5","1", "1.5" ,"2.0" , "2.5", "3.0"};
-   
+    /**
+     * Construtor da classe CadEmpresa.
+     * Cria uma nova instância da tela de cadastro de empresas.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     public CadEmpresa() throws ParseException {
         
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconeHeroi.png")));
@@ -53,21 +56,24 @@ public class CadEmpresa extends TelaDefault {
         btnCadastrar = new JButton("Enviar");
         btnBack = new JButton("Cad. empresa");
         
-        lblNome.setBounds(20, 20, 200, 50);
-        lblCnpj.setBounds(20, 80, 200, 50);
-        lblAtuacao.setBounds(20,140,200,50);
-        lblTempoPrograma.setBounds(20,220,200,50);
-        familiasAssist.setBounds(20,280,200,50);
+        // Configuração dos posicionamentos dos componentes na tela
         
-        razaoSocial.setBounds(20,60,200,20);
-        ftxtCnpj.setBounds(20, 120, 200, 20);
-        txtAtuacao.setBounds(20,180,200,20);
-        jTempoPrograma.setBounds(20,260,200,20);
-        cqdefamiliasAssist.setBounds(20,320,200,20);
+        lblNome.setBounds(35, 20, 200, 50);
+        lblCnpj.setBounds(35, 80, 200, 50);
+        lblAtuacao.setBounds(35,140,200,50);
+        lblTempoPrograma.setBounds(35,220,200,50);
+        familiasAssist.setBounds(35,280,200,50);
         
-        btnCadastrar.setBounds(20, 360, 200, 40);
-        btnBack.setBounds(20, 450, 200, 40);
+        razaoSocial.setBounds(35,60,200,20);
+        ftxtCnpj.setBounds(35, 120, 200, 20);
+        txtAtuacao.setBounds(35,180,200,20);
+        jTempoPrograma.setBounds(35,260,200,20);
+        cqdefamiliasAssist.setBounds(35,320,200,20);
         
+        btnCadastrar.setBounds(35, 360, 200, 40);
+        btnBack.setBounds(35, 400, 200, 40);
+        
+        // Configuração dos eventos dos botões
         btnCadastrar.addActionListener((ActionEvent e) -> {
             try{
                 cadastrarEmpresa();
@@ -91,7 +97,7 @@ public class CadEmpresa extends TelaDefault {
                 }
             }
         });
-                
+        // Adição dos componentes na tela    
         add(lblNome);
         add(lblCnpj);
         add(lblAtuacao);
@@ -111,12 +117,18 @@ public class CadEmpresa extends TelaDefault {
         
         setVisible(true);
     }
-    
+    /**
+     * Retorna para a tela do menu principal.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     private void BackMenu() throws ParseException{
         this.dispose();
         MenuTela menu = new MenuTela();
     }
-    
+    /**
+     * Cadastra a empresa.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     private void cadastrarEmpresa()throws ParseException{
         String nome = razaoSocial.getText(),
                cnpj = ftxtCnpj.getText();

@@ -12,18 +12,28 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author midia
+ * Classe responsável pela autenticação do usuário.
  */
 public class Autenticacao {
 
     DBConnection inst = DBConnection.getInstance();
     Connection con = inst.getConexao();
-
+/**
+     * Construtor da classe Autenticacao.
+     *
+     * @param nome O nome do usuário.
+     * @param senha A senha do usuário.
+     */
     public Autenticacao(String nome, String senha) {
-
+        // Construtor vazio, não é necessário implementação.
     }
-
+/**
+     * Verifica se as credenciais de login são válidas.
+     *
+     * @param nome O nome do usuário.
+     * @param senha A senha do usuário.
+     * @return true se as credenciais forem válidas, false caso contrário.
+     */
     public boolean Acessa(String nome, String senha) {
 
         try {

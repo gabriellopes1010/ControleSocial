@@ -5,20 +5,35 @@
 package Controller.TemplateMethod;
 
 /**
- *
- * @author midia
+ * Classe abstrata que representa um objeto de banco de dados.
  */
 public abstract class DBObject {
-
+/**
+     * Construtor da classe.
+     */
     public DBObject() {
     }
     
     
-    
+    /**
+     * Método abstrato para inserir o objeto no banco de dados.
+     */
     public  void inserir(){};
+    /**
+     * Método abstrato para atualizar o objeto no banco de dados.
+     */
     public  void atualizar(){};
+    /**
+     * Método abstrato para deletar o objeto do banco de dados.
+     */
     public  void deletar(){};
+     /**
+     * Método abstrato para deletar todos os objetos do banco de dados.
+     */
     public  void deletarTodos(){};
+    /**
+     * Método abstrato para exibir os objetos do banco de dados.
+     */
     public  void mostrar(){};
     
 }

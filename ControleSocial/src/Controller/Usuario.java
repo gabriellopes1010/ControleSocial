@@ -15,6 +15,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Classe que representa um usuário do sistema.
+ */
 public class Usuario extends DBObject {
 
     DBConnection inst = DBConnection.getInstance();
@@ -23,16 +26,27 @@ public class Usuario extends DBObject {
     private String nome;
     private String senha;
     private String NomeAtual;
-
+    
+ /**
+     * Construtor da classe.
+     *
+     * @param nomeUser O nome do usuário.
+     * @param senhaUser A senha do usuário.
+     */
     public Usuario(String nomeUser, String senhaUser) {
         nome = nomeUser;
         senha = senhaUser;
         NomeAtual = nomeUser;
     }
-
+/**
+     * Construtor vazio da classe.
+     */
     public Usuario() {
     }
 
+    /**
+     * Insere o usuário no banco de dados.
+     */
     @Override
     public void inserir() {
         try {
@@ -51,6 +65,9 @@ public class Usuario extends DBObject {
         }
     }
 
+     /**
+     * Exibe os usuários cadastrados em uma tabela.
+     */
     @Override
     public void mostrar() {
         JFrame tela = new JFrame();
@@ -86,6 +103,9 @@ public class Usuario extends DBObject {
         tela.setVisible(true);
     }
 
+    /**
+     * Atualiza os dados do usuário no banco de dados.
+     */
     @Override
     public void atualizar() {
         try {
@@ -109,7 +129,11 @@ public class Usuario extends DBObject {
         }
 
     }
-
+ /**
+     * Deleta um usuário do banco de dados.
+     *
+     * @param nome O nome do usuário a ser deletado.
+     */
     public void deletar(String nome) {
         try {
             String query = "DELETE FROM usuarios WHERE nome_usuario = ?";

@@ -16,15 +16,18 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 import javax.swing.text.MaskFormatter;
 
 /**
- *
- * @author midia
+ * Classe que representa a tela de deleção de empresas.
  */
 public class TrashEmpresa extends JFrame{
 
     private final JLabel lbl_razaoSocial;
     private final JFormattedTextField txt_cnpjEmpresa;
     private final JButton btnDeletar,btnBack;
-    
+    /**
+     * Construtor da classe TrashEmpresa.
+     * Cria uma nova instância da tela de deleção de empresas.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     public TrashEmpresa() throws ParseException {
         setSize(400,400);
         setLayout(null);
@@ -38,14 +41,14 @@ public class TrashEmpresa extends JFrame{
         
         btnDeletar = new JButton("Deletar");
         btnBack = new JButton("Voltar");
-        
+        // Configuração dos posicionamentos dos componentes na tela
         lbl_razaoSocial.setBounds(90, 100, 250, 30);
         txt_cnpjEmpresa.setBounds(90, 160, 200, 30);
         
         btnDeletar.setBounds(90, 220, 200, 30);
         btnBack.setBounds(90, 280, 200, 30);
         
-        
+        // Configuração dos eventos dos botões
         btnDeletar.addActionListener((ActionEvent e) -> {
             deletar();
             voltar();
@@ -54,7 +57,7 @@ public class TrashEmpresa extends JFrame{
         btnBack.addActionListener((ActionEvent e) -> {
             voltar();
         });
-        
+        // Adição dos componentes na tela
         add(lbl_razaoSocial);
         add(txt_cnpjEmpresa);
         add(btnDeletar);
@@ -64,14 +67,18 @@ public class TrashEmpresa extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     
     }
-    
+     /**
+     * Deleta a empresa com base no CNPJ informado.
+     */
     private void deletar(){
        String cnpj = txt_cnpjEmpresa.getText().replaceAll("\\D+", "");
 
         Empresa empresa = new Empresa();
          empresa.deletar(cnpj);
     }
-    
+    /**
+     * Retorna para a tela do menu principal.
+     */
     private void voltar(){
         this.dispose();
         MenuTela menu = new MenuTela();

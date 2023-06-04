@@ -18,8 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 /**
- *
- * @author midia
+ * Classe que representa a tela de cadastro de beneficiário.
  */
 public class CadBeneficiario extends TelaDefault{
     
@@ -32,14 +31,18 @@ public class CadBeneficiario extends TelaDefault{
     private final String[] qdeDependentes = {"1", "2", "3", "4", "5","6"};
     private final String[] tmpDesempregado = {"0.5","1", "1.5" ,"2.0" , "2.5", "3.0"};
 
-   
+    /**
+     * Construtor da classe CadBeneficiario.
+     * Cria uma nova instância da tela de cadastro de beneficiário.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     public CadBeneficiario() throws ParseException {
         
         setTitle("Cadastro de Beneficiário");
         setResizable(false);
         setLocationRelativeTo(null);
 
-        
+        // Inicialização dos componentes da tela
         lblNome = new JLabel("Nome do Beneficiário:");
         lblCpf = new JLabel("CPF do Beneficiário:");
         lblprofissao = new JLabel("Profissão do Beneficiário:");
@@ -54,21 +57,23 @@ public class CadBeneficiario extends TelaDefault{
         btnCadastrar = new JButton("Cadastrar");
         btnBack = new JButton("Voltar");
         
-        lblNome.setBounds(20, 20, 200, 50);
-        lblCpf.setBounds(20, 80, 200, 50);
-        lblprofissao.setBounds(20,140,200,50);
-        lbltempoDesempregado.setBounds(20,220,200,50);
+        // Configuração dos posicionamentos dos componentes na tela
+        lblNome.setBounds(35, 20, 200, 50);
+        lblCpf.setBounds(35, 80, 200, 50);
+        lblprofissao.setBounds(35,140,200,50);
+        lbltempoDesempregado.setBounds(35,220,200,50);
         qtdeDependentes.setBounds(20,280,200,50);
         
-        txtNome.setBounds(20,60,200,20);
-        ftxtCpf.setBounds(20, 120, 200, 20);
-        txtProfissional.setBounds(20,180,200,20);
-        jtempoDesempregado.setBounds(20,260,200,20);
-        cqdeDependentes.setBounds(20,320,200,20);
+        txtNome.setBounds(35,60,200,20);
+        ftxtCpf.setBounds(35, 120, 200, 20);
+        txtProfissional.setBounds(35,180,200,20);
+        jtempoDesempregado.setBounds(35,260,200,20);
+        cqdeDependentes.setBounds(35,320,200,20);
         
-        btnCadastrar.setBounds(20, 360, 200, 40);
-        btnBack.setBounds(20, 450, 200, 40);
+        btnCadastrar.setBounds(35, 360, 200, 30);
+        btnBack.setBounds(35, 400, 200, 30);
         
+        // Configuração dos eventos dos botões
         btnCadastrar.addActionListener((ActionEvent e) -> {
             try{
                 cadastrarBeneficiario();
@@ -87,7 +92,8 @@ public class CadBeneficiario extends TelaDefault{
                 }
             }
         });
-                
+        
+         // Adição dos componentes na telas
         add(lblNome);
         add(lblCpf);
         add(lblprofissao);
@@ -107,12 +113,18 @@ public class CadBeneficiario extends TelaDefault{
         
         setVisible(true);
     }
-    
+    /**
+     * Retorna à tela do menu principal.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     private void BackMenu() throws ParseException{
         this.dispose();
         MenuTela menu = new MenuTela();
     }
-    
+      /**
+     * Realiza o cadastro do beneficiário.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     private void cadastrarBeneficiario()throws ParseException{
         String nome = txtNome.getText(),
                cpf =ftxtCpf.getText();

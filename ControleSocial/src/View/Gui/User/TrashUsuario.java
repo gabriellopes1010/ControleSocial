@@ -12,13 +12,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-
+/**
+ * Classe que representa a tela de exclusão de usuários.
+ */
 public class TrashUsuario extends JFrame {
     
     private final JLabel lbl_nome;
     private final JTextField txt_Usuario;
     private final JButton btnDeletar,btnBack;
-    
+     /**
+     * Construtor da classe TrashUsuario.
+     * Cria e configura os componentes da tela.
+     */
     public TrashUsuario() {
         setLayout(null);
         setResizable(false);
@@ -58,14 +63,18 @@ public class TrashUsuario extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     
     }
-    
+     /**
+     * Método que realiza a exclusão de um usuário.
+     */
     private void deletar(){
        String nome = txt_Usuario.getText();
        System.out.println(nome);
        Usuario usuario = new Usuario();
        usuario.deletar(nome);
     }
-    
+    /**
+     * Método que volta para a tela de menu.
+     */
     private void voltar(){
         this.dispose();
         MenuTela menu = new MenuTela();

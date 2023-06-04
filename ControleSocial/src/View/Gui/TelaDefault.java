@@ -7,9 +7,14 @@ package View.Gui;
 import java.awt.HeadlessException;
 import javax.swing.JFrame;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-
+/**
+ * Classe que representa uma tela padrão em um aplicativo Swing.
+ */
 public class TelaDefault extends JFrame {
-
+  /**
+     * Construtor da classe TelaDefault.
+     * Cria uma nova instância da tela padrão.
+     */
     public TelaDefault(){
         try {
             setLayout(null);

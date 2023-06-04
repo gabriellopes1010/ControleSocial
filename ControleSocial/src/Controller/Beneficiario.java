@@ -15,11 +15,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author midia
- */
+
 public class Beneficiario extends DBObject {
+     /**
+     * Construtor da classe Beneficiario.
+     * @param nomeBene O nome do beneficiário.
+     * @param cpfBene O CPF do beneficiário.
+     * @param profissaoBene A profissão do beneficiário.
+     * @param tempoDesempregadoBene O tempo de desemprego do beneficiário.
+     * @param dependentesBene O número de dependentes do beneficiário.
+     */
 
     DBConnection inst = DBConnection.getInstance();
     Connection con = inst.getConexao();
@@ -29,7 +34,9 @@ public class Beneficiario extends DBObject {
     private String profissao;
     private float tempoDesempregado;
     private int dependentes;
-
+/**
+     * Construtor vazio da classe Beneficiario.
+ */
     public Beneficiario(String nomeBene, String cpfBene, String profissaoBene, float tempoDesempregadoBene, int dependentesBene) {
         nome = nomeBene;
         cpf = cpfBene;
@@ -40,7 +47,9 @@ public class Beneficiario extends DBObject {
 
     public Beneficiario() {
     }
-
+ /**
+     * Insere um beneficiário no banco de dados.
+     */
     public void inserir() {
 
         try {
@@ -63,6 +72,9 @@ public class Beneficiario extends DBObject {
         }
     }
 
+   /**
+     * Atualiza um beneficiário no banco de dados.
+     */
     @Override
     public void atualizar() {
         try {
@@ -88,7 +100,10 @@ public class Beneficiario extends DBObject {
             System.out.println("Erro:\n" + e);
         }
     }
-
+/**
+     * Deleta um beneficiário do banco de dados.
+     * @param cpf O CPF do beneficiário a ser deletado.
+     */
     public void deletar(String cpf) {
         try {
             String query = "DELETE FROM beneficiario WHERE cpf_beneficiario = ?";
@@ -108,6 +123,9 @@ public class Beneficiario extends DBObject {
         }
     }
 
+     /**
+     * Mostra os beneficiários cadastrados em uma tabela.
+     */
     @Override
     public void mostrar() {
         
@@ -116,6 +134,9 @@ public class Beneficiario extends DBObject {
         tela.setTitle("Beneficiarios cadastrados");
         tela.setSize(500, 300);
         tela.setResizable(false);
+        tela.setLocationRelativeTo(null);
+
+
         // Cria a tabela
         String[] colunas = {"Nome", "cpf","profissao","Tempo Desemp.","dependentes"};
         DefaultTableModel modelo = new DefaultTableModel(colunas, 0);
@@ -144,6 +165,7 @@ public class Beneficiario extends DBObject {
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         // Exibe a janela
         tela.setVisible(true);
-    }
-
+        
+        
+    }  
 }

@@ -8,8 +8,6 @@ import Model.Autenticacao;
 import View.Gui.Menu.MenuTela;
 import View.Gui.TelaDefault;
 import View.Gui.User.CadastroUser;
-import java.awt.Color;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -22,15 +20,17 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
- *
- * @author midia
+ * Classe que representa a tela de login do sistema.
  */
 public class LoginTela extends TelaDefault implements Runnable{
 
     private final JLabel lbl_nomeUsuario, lbl_senhaUsuario;
     private final JTextField txt_nomeUsuario, txt_senhaUsuario;
     private final JButton btn_logar,btn_cadastrar;
-
+/**
+     * Construtor da classe LoginTela.
+     * Cria uma nova instância da tela de login.
+     */
     public LoginTela() {
         setTitle("Tela de login");
         setSize(300, 250);
@@ -46,7 +46,7 @@ public class LoginTela extends TelaDefault implements Runnable{
 
         btn_logar = new JButton("Logar");
         btn_cadastrar = new JButton("Cadastrar");
-        
+         // Configuração dos posicionamentos dos componentes na tela
         lbl_nomeUsuario.setBounds(20, 10, 60, 50);
         txt_nomeUsuario.setBounds(75,26,180, 20);
 
@@ -62,7 +62,7 @@ public class LoginTela extends TelaDefault implements Runnable{
 
         btn_cadastrar.setContentAreaFilled(false);
         btn_cadastrar.setOpaque(true);
-        
+        // Configuração dos eventos dos botões
         btn_logar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,7 +84,7 @@ public class LoginTela extends TelaDefault implements Runnable{
                 System.out.println("Ocorreu um erro ao carregar a tela de cadastro :" + ex);
             }
         });
-
+        // Adição dos componentes na tela
         add(lbl_nomeUsuario);
         add(lbl_senhaUsuario);
         add(txt_nomeUsuario);
@@ -95,7 +95,11 @@ public class LoginTela extends TelaDefault implements Runnable{
 
     }
 
-    //Pegando os valores dos Campos
+    /**
+     * Efetua o login do usuário.
+     * Verifica se as informações de login são válidas e, em caso positivo, redireciona para a tela de menu.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     private  synchronized void Logar() throws ParseException {
         String nome = txt_nomeUsuario.getText();
         String senha = txt_senhaUsuario.getText();
@@ -111,7 +115,11 @@ public class LoginTela extends TelaDefault implements Runnable{
         }
 
     }
-    
+     /**
+     * Abre a tela de cadastro de usuários.
+     * Fecha a tela de login e exibe a tela de cadastro de usuários.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     private void CadastrarUsuario() throws ParseException {
         CadastroUser cadastraUsuario = new CadastroUser();
         

@@ -16,15 +16,17 @@ import javax.swing.JTextField;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /**
- *
- * @author midia
+ * Classe que representa a tela de atualização de usuário.
  */
 public class RefreshUsuario extends JFrame {
 
     private final JLabel lbl_nomeUsuario, lbl_senhaUsuario;
     private final JTextField txt_nomeUsuario, txt_senhaUsuario;
     private final JButton btn_atualizar, btn_voltar;
-
+/**
+     * Construtor da classe RefreshUsuario.
+     * Cria e configura os componentes da tela.
+     */
     public RefreshUsuario() {
         setLayout(null);
         setTitle("Atualização de usuario");
@@ -72,7 +74,9 @@ public class RefreshUsuario extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-
+/**
+     * Método que atualiza os dados do usuário.
+     */
     private synchronized void AtualizarUser() {
        
         String nomeuser = txt_nomeUsuario.getText();
@@ -80,7 +84,9 @@ public class RefreshUsuario extends JFrame {
         
         new Usuario(nomeuser, senhauser).atualizar();
     }
-
+  /**
+     * Método que volta para a tela de menu.
+     */
     private void voltar() {
         this.dispose();
         MenuTela menu = new MenuTela();

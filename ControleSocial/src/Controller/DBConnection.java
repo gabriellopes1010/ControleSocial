@@ -9,8 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
- * @author midia
+ * Esta classe representa a conexão com o banco de dados.
  */
 public class DBConnection {
 
@@ -21,7 +20,10 @@ public class DBConnection {
     private static final String senha = "12345";
     
     
-
+ /**
+     * Construtor privado da classe DBConnection.
+     * Realiza a conexão com o banco de dados.
+     */
     private static DBConnection instance;
 
     private DBConnection() {
@@ -35,7 +37,10 @@ public class DBConnection {
             System.out.println("Ocorreu um erro ao efetuar a conexão" + ex.getMessage());
         }
     }
-
+ /**
+     * Obtém uma instância única da classe DBConnection (Singleton).
+     * @return A instância única de DBConnection.
+     */
     public static synchronized DBConnection getInstance() {
 
         if (instance == null) {
@@ -43,7 +48,10 @@ public class DBConnection {
         }
         return instance;
     }
-
+ /**
+     * Obtém a conexão com o banco de dados.
+     * @return A conexão com o banco de dados.
+     */
     public synchronized Connection getConexao() {
         return this.conexao;
     }

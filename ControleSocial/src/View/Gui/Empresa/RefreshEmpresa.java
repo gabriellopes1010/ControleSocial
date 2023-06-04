@@ -21,8 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 /**
- *
- * @author midia
+ * Classe que representa a tela de atualização de empresas.
  */
 public class RefreshEmpresa extends TelaDefault{
     
@@ -34,7 +33,11 @@ public class RefreshEmpresa extends TelaDefault{
     
       private final String[] qdefamiliasAssist = {"1", "2", "3", "4", "5","6"};
       private final String[] tmpPrograma = {"0.5","1", "1.5" ,"2.0" , "2.5", "3.0"};
-      
+      /**
+     * Construtor da classe RefreshEmpresa.
+     * Cria uma nova instância da tela de atualização de empresas.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     public RefreshEmpresa() throws ParseException {
         
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconeHeroi.png")));
@@ -57,7 +60,7 @@ public class RefreshEmpresa extends TelaDefault{
         cqdefamiliasAssist = new JComboBox(qdefamiliasAssist);
         btnAtualizar = new JButton("Atualizar");
         btnBack = new JButton("Voltar");
-        
+        // Configuração dos posicionamentos dos componentes na tela
         lblNome.setBounds(20, 20, 200, 50);
         lblCnpj.setBounds(20, 80, 200, 50);
         lblAtuacao.setBounds(20,140,200,50);
@@ -72,7 +75,7 @@ public class RefreshEmpresa extends TelaDefault{
               
         btnAtualizar.setBounds(20, 360, 200, 40);
         btnBack.setBounds(20, 450, 200, 40);
-        
+        // Configuração dos eventos dos botões
          btnAtualizar.addActionListener((ActionEvent e) -> {
             Atualizar();
             try {
@@ -92,7 +95,7 @@ public class RefreshEmpresa extends TelaDefault{
                 }
             }
         });
-                
+        // Adição dos componentes na tela        
         add(lblNome);
         add(lblCnpj);
         add(lblAtuacao);
@@ -111,12 +114,17 @@ public class RefreshEmpresa extends TelaDefault{
         
         setVisible(true);
     }
-    
+    /**
+     * Retorna para a tela do menu principal.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     private void BackMenu() throws ParseException{
         this.dispose();
         MenuTela menu = new MenuTela();
     }
-    
+     /**
+     * Atualiza os dados da empresa.
+     */
     private void Atualizar(){
         String nome = razaoSocial.getText(),
                cnpj = ftxtCnpj.getText();

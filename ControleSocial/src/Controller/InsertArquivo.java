@@ -13,8 +13,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author midia
+ * Esta classe representa a inserção de dados a partir de arquivos no banco de dados.
+ * Implementa a interface Runnable para executar a inserção em uma thread separada.
  */
 public class InsertArquivo implements Runnable {
 
@@ -24,8 +24,9 @@ public class InsertArquivo implements Runnable {
     private final String ARQUIVOBENE = "C:\\Users\\midia\\Documents\\NetBeansProjects\\ControleSocial\\insereBENE.txt";
     private final String ARQUIVOEMP = "C:\\Users\\midia\\Documents\\NetBeansProjects\\ControleSocial\\insereEMP.txt";
 
-
-
+    /**
+     * Executa a inserção dos dados dos arquivos no banco de dados em uma thread separada.
+     */
     @Override
     public void run() {
         Thread Monitor = new Thread(() -> {
@@ -66,7 +67,11 @@ public class InsertArquivo implements Runnable {
         });
         Monitor.start();
     }
-
+/**
+     * Insere os valores no banco de dados para a tabela de usuários.
+     *
+     * @param valores Os valores a serem inseridos no banco de dados.
+     */
     private void inserirNoBanco(String valores) {
         try {
 
@@ -93,7 +98,11 @@ public class InsertArquivo implements Runnable {
         
         limparArquivo();
     }
-    
+    /**
+     * Insere os valores no banco de dados para a tabela de beneficiários.
+     *
+     * @param valores Os valores a serem inseridos no banco de dados.
+     */
      private void inserirNoBancoBENE(String valores) {
         try {
 
@@ -124,7 +133,11 @@ public class InsertArquivo implements Runnable {
         limparArquivoBENE();
 
     }
-     
+     /**
+     * Insere os valores no banco de dados para a tabela de empresas.
+     *
+     * @param valores Os valores a serem inseridos no banco de dados.
+     */
      private void inserirNoBancoEMP(String valores) {
         try {
 
@@ -153,6 +166,9 @@ public class InsertArquivo implements Runnable {
         limparArquivoEMP();
 
     };
+      /**
+     * Limpa o conteúdo do arquivo de entrada.
+     */
          private void limparArquivo() {
         try {
             try (FileWriter writer = new FileWriter(ARQUIVO)) {
@@ -163,6 +179,9 @@ public class InsertArquivo implements Runnable {
             System.out.println("Ocorreu um erro ao limpar o arquivo: " + e);
         }
     }
+         /**
+     * Limpa o conteúdo do arquivo de entrada de beneficiários.
+     */
          private void limparArquivoBENE() {
         try {
             FileWriter writer = new FileWriter(ARQUIVOBENE);
@@ -173,6 +192,9 @@ public class InsertArquivo implements Runnable {
             System.out.println("Ocorreu um erro ao limpar o arquivo: " + e);
         }
     }
+           /**
+     * Limpa o conteúdo do arquivo de entrada de empresas.
+     */
          private void limparArquivoEMP() {
         try {
             FileWriter writer = new FileWriter(ARQUIVOEMP);

@@ -19,8 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 /**
- *
- * @author midia
+ * Classe que representa a tela de atualização de beneficiário.
  */
 public class RefreshBeneficiario extends TelaDefault{
     
@@ -33,7 +32,11 @@ public class RefreshBeneficiario extends TelaDefault{
     private final String[] qdeDependentes = {"1", "2", "3", "4", "5","6"};
     private final String[] tmpDesempregado = {"0.5","1", "1.5" ,"2.0" , "2.5", "3.0"};
 
-   
+    /**
+     * Construtor da classe RefreshBeneficiario.
+     * Cria uma nova instância da tela de atualização de beneficiário.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     public RefreshBeneficiario() throws ParseException {
         
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconeHeroi.png")));
@@ -42,7 +45,7 @@ public class RefreshBeneficiario extends TelaDefault{
         
                 JOptionPane.showMessageDialog(null, "Digite cpf do beneficiario para atualizar os campos!");
 
-        
+         // Inicialização dos componentes da tela
         lblNome = new JLabel("Nome do Beneficiário:");
         lblCpf = new JLabel("CPF do Beneficiário:");
         lblprofissao = new JLabel("Profissão do Beneficiário:");
@@ -56,7 +59,7 @@ public class RefreshBeneficiario extends TelaDefault{
         cqdeDependentes = new JComboBox(qdeDependentes);
         btnAtualizar = new JButton("Atualizar");
         btnBack = new JButton("Voltar");
-        
+        // Configuração dos posicionamentos dos componentes na tela
         lblNome.setBounds(20, 20, 200, 50);
         lblCpf.setBounds(20, 80, 200, 50);
         lblprofissao.setBounds(20,140,200,50);
@@ -71,7 +74,7 @@ public class RefreshBeneficiario extends TelaDefault{
         
         btnAtualizar.setBounds(20, 360, 200, 40);
         btnBack.setBounds(20, 450, 200, 40);
-        
+          // Configuração dos eventos dos botões
          btnAtualizar.addActionListener((ActionEvent e) -> {
             Atualizar();
         });
@@ -86,7 +89,7 @@ public class RefreshBeneficiario extends TelaDefault{
                 }
             }
         });
-                
+          // Adição dos componentes na tela       
         add(lblNome);
         add(lblCpf);
         add(lblprofissao);
@@ -105,12 +108,17 @@ public class RefreshBeneficiario extends TelaDefault{
         
         setVisible(true);
     }
-    
+     /**
+     * Retorna à tela do menu principal.
+     * @throws ParseException Exceção lançada em caso de erro na formatação de dados.
+     */
     private void BackMenu() throws ParseException{
         this.dispose();
         MenuTela menu = new MenuTela();
     }
-    
+    /**
+     * Realiza a atualização do beneficiário.
+     */
     private void Atualizar(){
         String nome = txtNome.getText(),
                cpf =ftxtCpf.getText();
