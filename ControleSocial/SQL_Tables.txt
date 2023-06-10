@@ -1,0 +1,26 @@
+CREATE DATABASE social;
+
+USE social;
+
+
+CREATE TABLE beneficiario (
+    nome_beneficiario VARCHAR(100) NOT NULL,
+    cpf_beneficiario VARCHAR(20) NOT NULL UNIQUE,
+    profissao_beneficiario VARCHAR(20),
+    tempoDesempregado_beneficiario  FLOAT(20),
+    dependentes_beneficiario INT (15)
+);
+
+
+CREATE TABLE empresa (
+    nome_empresa VARCHAR(100) NOT NULL,
+    cnpj_empresa VARCHAR(25) NOT NULL UNIQUE,
+    atuacao_empresa VARCHAR(20),
+    tempo_empresa  FLOAT(20),
+    familias_empresa INT (15)
+);
+
+CREATE TABLE usuarios (
+    nome_usuario VARCHAR(50) NOT NULL UNIQUE,
+    senha_usuario VARCHAR(50) NOT NULL
+);
